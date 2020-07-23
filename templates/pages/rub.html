@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="grid_2 table">
+    <li>Amount: {{ order.amount }}</li>
+    <li>Currency: {{ order.currency }}</li>
+    <li>lang: {{ context.lang }}</li>
+    <li>m_curorderid: {{ context.m_curorderid }}</li>
+    <li>m_historyid: {{ context.m_historyid }}</li>
+    <li>m_historytm: {{ context.m_historytm }}</li>
+    <li class="col_2">Sign: {{ order.sign }}</li>
+</ul>
+<form method="GET" action="https://payeer.com/api/merchant/process.php">
+    <input type="hidden" name="lang" value="{{ context.lang }}" />
+    <input type="hidden" name="m_curorderid" value="{{ context.m_curorderid }}"/>
+    <input type="hidden" name="m_historyid" value="{{ context.m_historyid }}"/>
+    <input type="hidden" name="m_historytm" value="{{ context.m_historytm }}"/>
+    <input type="hidden" name="referer" value="{{ context.referer }}"/> 
+    <input type="submit"/>
+</form>
+
+{% endblock %}
+
+
+

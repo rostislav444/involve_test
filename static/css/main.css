@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(236, 238, 243);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100vh;
+   overflow-y: auto;
+}
+.content {
+    position: relative;
+    display: block;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    min-height: 96px;
+}
+

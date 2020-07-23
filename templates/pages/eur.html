@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="grid_2 table">
+    <li>Amount: {{ order.amount }}</li>
+    <li>Currency: {{ order.currency }}</li>
+    <li class="col_2">Sign: {{ order.sign }}</li>
+</ul>
+<form name="Pay" method="post" action="https://pay.piastrix.com/ru/pay" accept-charset="UTF-8">
+    <input type="hidden" name="amount" value="{{ order.amount }}"/>
+    <input type="hidden" name="currency" value="{{ order.currency }}"/>
+    <input type="hidden" name="shop_id" value="{{ order.shop_id }}"/>
+    <input type="hidden" name="sign" value="{{ order.sign }}"/>
+    <input type="hidden" name="shop_order_id" value="{{ order.id }}"/>
+    <input type="submit" input type="hidden" name="description" value="Test invoice"/>
+</form>
+
+{% endblock %}

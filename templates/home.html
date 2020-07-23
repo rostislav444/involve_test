@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/" method="POST" enctype="multipart/form-data">
+    <p class="h1">Payment processing form</p>
+    {% if msgs.error %}
+        <p class="error">Error: {{ msgs.error }}</p>
+    {% endif %}
+    <div class="inputs">
+        <p>
+            <label for="form__amount">Amount</label>
+            <input type="number" name="amount" id="form__amount" placeholder="0.00" required>
+        </p>
+        <p>
+            <label for="form__currency">Currency</label>
+            <select name="currency" id="form__currency">
+                <option value="978" selected>EUR</option>
+                <option value="840" >USD</option>
+                <option value="643" >RUB</option>
+            </select>
+        </p>
+        <p class="col_2"> 
+            <label for="form__description">Product description</label>
+            <textarea name="description" id="form__description" rows="10">Test invoice</textarea>
+        </p>
+        
+    </div>
+    <button>Send</button>
+</form>
+{% endblock %}
